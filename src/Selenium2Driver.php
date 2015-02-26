@@ -927,21 +927,36 @@ JS;
         return $this->wdSession->execute(array('script' => $script, 'args' => array()));
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function acceptAlert()
     {
         $this->wdSession->accept_alert();
     }
 
-
+    /**
+     * {@inheritdoc}
+     */
     public function getAlertText()
     {
         return $this->wdSession->getAlert_text();
     }
 
-
-    public function setAlertText($jsonText)
+    /**
+     * {@inheritdoc}
+     */
+    public function setPromptText($text)
     {
-        $this->wdSession->postAlert_text(array("text" => $jsonText));
+        $this->wdSession->postAlert_text(array("text" => $text));
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function dismissAlert()
+    {
+        $this->wdSession->dismiss_alert();
     }
 
     /**
